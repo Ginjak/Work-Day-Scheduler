@@ -4,7 +4,8 @@ var plannerHours = [9, 10, 11, 12, 13, 14, 15, 16, 21];
 
 // Current time
 var currentHour = dayjs();
-
+// Display current day in Header (date format Friday, January 05)
+$("#currentDay").text(dayjs().format("dddd[,] MMMM DD"));
 // Create time block
 for (var i = 0; i < plannerHours.length; i++) {
   var timeBlock = $("<div>");
@@ -63,6 +64,4 @@ container.on("click", ".saveBtn", function () {
   );
 
   $(this).prev().val(updatedTextAreaValue);
-
-  console.log(updatedTextAreaValue);
 });
