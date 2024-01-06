@@ -1,6 +1,6 @@
 // Elements
-var field = $(".field");
-var plannerHours = [9, 10, 11, 12, 13, 14, 15, 16, 23];
+var container = $(".container");
+var plannerHours = [9, 10, 11, 12, 13, 14, 15, 16, 21];
 
 // Current time
 var currentHour = dayjs();
@@ -19,16 +19,18 @@ for (var i = 0; i < plannerHours.length; i++) {
   hourDiv.text(timeDisplay);
   // Create Textarea
   var textArea = $("<textarea>");
+  textArea.attr("data-order", i + 1);
   textArea.addClass("col-8 description");
   // Create Button
   var saveBtn = $("<button>");
+  saveBtn.attr("data-order", i + 1);
   saveBtn.addClass("col-2 saveBtn");
   var btnIcon = $("<i>");
   btnIcon.addClass("fas fa-save");
   saveBtn.append(btnIcon);
 
   // Appen time block to container
-  field.append(timeBlock);
+  container.append(timeBlock);
   timeBlock.append(hourDiv);
   timeBlock.append(textArea);
   timeBlock.append(saveBtn);
@@ -42,35 +44,25 @@ for (var i = 0; i < plannerHours.length; i++) {
     textArea.addClass("past");
   }
 
-  console.log(differenceInMinutess);
+  // Target textarea depening on data-order value
+  var savedTextAreaValue = localStorage.getItem("Text Area Input" + (i + 1));
+  textArea.val(savedTextAreaValue);
 }
+// Click event on button click
+container.on("click", ".saveBtn", function () {
+  var buttonOrder = $(this).data("order");
+  var textAreaOrder = $(this).prev().data("order");
+  var textAreaOrderValue = $(
+    ".description[data-order=" + textAreaOrder + "]"
+  ).val();
 
-var fourAM = dayjs().hour(20).minute(0);
-// var currentHour = dayjs();
+  // Update local storage with the corresponding textarea value
+  localStorage.setItem("Text Area Input" + textAreaOrder, textAreaOrderValue);
+  var updatedTextAreaValue = localStorage.getItem(
+    "Text Area Input" + textAreaOrder
+  );
 
-// Calculate the difference in minutes
-var differenceInMinutes = currentHour.diff(fourAM, "minutes");
-console.log(fourAM);
-console.log("Difference in Minutes:", differenceInMinutes);
+  $(this).prev().val(updatedTextAreaValue);
 
-// function test(id) {
-//   var hoursValue = $(id).find(".hour").text().trim();
-//   var currentHour = dayjs().format("h A");
-//   // console.log(currentHour);
-//   // console.log(hoursValue);
-// }
-
-// test("#nineAm");
-// function checkTime(id) {
-//   var timeBlock = $("id");
-//   var hour = $(".hour").text().trim();
-// }
-// checkTime(nineAmEl);
-
-// $(".hour").each(function (index) {
-//   var currentHour = dayjs().format("h A");
-//   var plannerhour = $(this).text().trim();
-//   var plannerhourDayJs = dayjs("9 PM", { format: "h A" });
-// });
-// // Current date
-// $("#currentDay").text(dayjs().format("dddd[,] MMMM DD "));
+  console.log(updatedTextAreaValue);
+});
