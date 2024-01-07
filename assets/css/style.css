@@ -89,6 +89,7 @@ header {
 .hour {
   background-color: #7c90a0;
   color: #fdfffc;
+  font-family: "Orbitron", sans-serif;
 }
 .description {
   white-space: pre-wrap;
@@ -145,8 +146,8 @@ i {
 }
 
 /* Modals */
-/* Planner times */
-#plannerTimes .modal-content {
+
+.modal-content {
   color: #fdfffc;
   background: #7c90a0;
 }
@@ -161,9 +162,11 @@ i {
 #plannerTimes .main-btn {
   padding: 12px 24px;
 }
-#plannerTimes #planner-time-close-btn.main-btn {
+#plannerTimes #planner-time-close-btn.main-btn,
+#clear-planner-modal #cancel-clear.main-btn {
   background: #596874;
 }
-#plannerTimes #planner-time-close-btn.main-btn:before {
+#plannerTimes #planner-time-close-btn.main-btn:before,
+#clear-planner-modal #cancel-clear.main-btn:before {
   background: rgb(55, 63, 70);
 }

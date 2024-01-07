@@ -10,6 +10,12 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -138,19 +144,20 @@
     <div class="modal fade" id="clear-planner-modal" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-body">
-            <p class="text-center">Are you sure?</p>
-
-            <button type="button" id="confirm-clear" class="btn btn-primary">
-              Yes
+          <div class="modal-header d-flex justify-content-center">
+            <h5 class="modal-title text-uppercase">Are you sure?</h5>
+          </div>
+          <div class="modal-body py-4 d-flex justify-content-center">
+            <button type="button" id="confirm-clear" class="main-btn me-1">
+              <span>Yes</span>
             </button>
             <button
               id="cancel-clear"
               type="button"
-              class="btn btn-secondary"
+              class="main-btn ms-1"
               data-bs-dismiss="modal"
             >
-              Cancel
+              <span>Cancel</span>
             </button>
           </div>
         </div>
