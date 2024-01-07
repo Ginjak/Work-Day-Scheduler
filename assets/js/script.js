@@ -1,9 +1,11 @@
 // Elements
 var container = $(".container");
-
 var storedPlannerHours;
 var plannerHours = JSON.parse(localStorage.getItem("plannerHours"));
-console.log(plannerHours);
+var timeSubmitBtn = $("#time-btn-submit");
+var timeFrom = $("#time-from");
+var timeTill = $("#time-till");
+
 // Current time
 var currentHour = dayjs();
 // Display current day in Header (date format Friday, January 05)
@@ -108,27 +110,28 @@ container.on("click", ".saveBtn", function () {
 });
 
 // Click event to clear local storage for textarea inputs
-$(".clear-planner").on("click", function () {
+$("#confirm-clear").on("click", function () {
+  $("#cancel-clear").click();
   removeAllTextAreaInputValues();
-  location.reload();
+  $(".description").val("");
 });
 
-var timeSubmitBtn = $("#time-btn-submit");
-var timeFrom = $("#time-from");
-var timeTill = $("#time-till");
-
+// Click event to change planners times
 timeSubmitBtn.on("click", function () {
-  plannerHours = [];
-  $(".time-block").remove();
-  removeAllTextAreaInputValues();
   var timeFromValue = Number(timeFrom.val());
   var timeTillValue = Number(timeTill.val());
-
-  for (var i = timeFromValue; i <= timeTillValue; i++) {
-    plannerHours.push(i);
-    localStorage.setItem("plannerHours", JSON.stringify(plannerHours));
+  if (timeFromValue <= timeTillValue) {
+    plannerHours = [];
+    $(".time-block").remove();
+    removeAllTextAreaInputValues();
+    for (var i = timeFromValue; i <= timeTillValue; i++) {
+      plannerHours.push(i);
+      localStorage.setItem("plannerHours", JSON.stringify(plannerHours));
+    }
+    storedPlannerHours = JSON.parse(localStorage.getItem("plannerHours"));
+    $("#planner-time-close-btn").click();
+    displayTimeBlocks();
+  } else if (timeFromValue > timeTillValue) {
+    $("#error-message").text("Wrong input");
   }
-  storedPlannerHours = JSON.parse(localStorage.getItem("plannerHours"));
-  console.log(storedPlannerHours);
-  displayTimeBlocks();
 });

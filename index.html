@@ -36,12 +36,19 @@
       >
         Working hours
       </button>
-      <button class="clear-planner">Clear all tasks</button>
+      <button
+        class="clear-planner"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        Clear all tasks
+      </button>
     </header>
     <div class="container my-5">
       <!-- Timeblocks go here -->
     </div>
     <!-- Modal -->
+    <!-- Modal to select planner times -->
     <div
       class="modal fade"
       id="plannerTimes"
@@ -115,12 +122,42 @@
                 </select>
               </div>
             </div>
+            <p id="error-message">test</p>
           </div>
           <div class="modal-footer">
             <button type="button" id="time-btn-submit" class="btn btn-primary">
               Submit
             </button>
             <button
+              id="planner-time-close-btn"
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal to clear local storage values for textarea (YES/NO) -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <p class="text-center">Are you sure?</p>
+
+            <button type="button" id="confirm-clear" class="btn btn-primary">
+              Yes
+            </button>
+            <button
+              id="cancel-clear"
               type="button"
               class="btn btn-secondary"
               data-bs-dismiss="modal"
