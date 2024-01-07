@@ -27,7 +27,7 @@ for (var i = 0; i < plannerHours.length; i++) {
   // Create Button with classes and dataset
   var saveBtn = $("<button>");
   saveBtn.attr("data-order", i + 1);
-  saveBtn.addClass("col-2 saveBtn");
+  saveBtn.addClass("col-2 saveBtn btnHover");
   var btnIcon = $("<i>");
   btnIcon.addClass("fas fa-save");
   saveBtn.append(btnIcon);
@@ -48,6 +48,9 @@ for (var i = 0; i < plannerHours.length; i++) {
     textArea.addClass("present");
   } else if (differenceInMinutess > 60) {
     textArea.addClass("past");
+    saveBtn.css("background", "#7c90a0");
+    $(".saveBtn").removeClass("btnHover");
+    textArea.css("background", "#7c90a0");
   }
 
   // Get text area value from local storage

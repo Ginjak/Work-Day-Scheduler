@@ -2,7 +2,7 @@ body {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
   line-height: 1;
-  background: #fdfffc;
+  background: #c8dbeb;
 }
 
 textarea {
@@ -16,7 +16,6 @@ textarea {
 header {
   text-align: center;
   background-color: #7c90a0;
-
   color: #fdfffc;
   border-radius: 0;
   border-bottom: 10px solid #596874;
@@ -29,6 +28,10 @@ header {
 
 .time-block {
   text-align: center;
+  border-top: 1px solid white;
+}
+.time-block:first-child {
+  border-top: none;
 }
 
 .time-block:first-child .hour {
@@ -49,7 +52,6 @@ header {
 .row {
   white-space: pre-wrap;
   height: 80px;
-  border-top: 1px solid white;
 }
 
 .hour {
@@ -68,17 +70,39 @@ header {
 }
 
 .future {
-  background-color: #77dd77;
+  background-color: #27a170;
   color: white;
 }
 
+.btnHover {
+  position: relative;
+}
+.btnHover:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: #385f58;
+  transition: width 0.4s ease-in;
+}
 .saveBtn {
-  background-color: #06aed5;
+  background-color: #26413c;
   color: white;
   border: none;
 }
 
-.saveBtn i:hover {
+i {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  z-index: 10;
+}
+.saveBtn:hover:before {
+  transition: width 0.4s ease-in;
+  width: 100%;
+}
+.btnHover:hover i {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
 }
