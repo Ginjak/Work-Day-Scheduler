@@ -47,6 +47,7 @@ header {
 }
 .main-btn:before {
   content: "";
+  border-radius: 5px;
   position: absolute;
   top: 0;
   left: 0;
@@ -141,4 +142,28 @@ i {
 .btnHover:hover i {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
+}
+
+/* Modals */
+/* Planner times */
+#plannerTimes .modal-content {
+  color: #fdfffc;
+  background: #7c90a0;
+}
+
+.modal-header {
+  border-bottom: 3px solid #596874;
+}
+.modal-footer {
+  border-top: 3px solid #596874;
+}
+
+#plannerTimes .main-btn {
+  padding: 12px 24px;
+}
+#plannerTimes #planner-time-close-btn.main-btn {
+  background: #596874;
+}
+#plannerTimes #planner-time-close-btn.main-btn:before {
+  background: rgb(55, 63, 70);
 }

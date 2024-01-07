@@ -71,8 +71,6 @@ function displayTimeBlocks() {
       // Display value in text area
       textArea.val(savedTextAreaValue);
     }
-  } else {
-    console.log("test");
   }
 }
 displayTimeBlocks();
@@ -129,6 +127,7 @@ timeSubmitBtn.on("click", function () {
       localStorage.setItem("plannerHours", JSON.stringify(plannerHours));
     }
     storedPlannerHours = JSON.parse(localStorage.getItem("plannerHours"));
+    $("#error-message").text("");
     $("#planner-time-close-btn").click();
     displayTimeBlocks();
   } else if (timeFromValue > timeTillValue) {

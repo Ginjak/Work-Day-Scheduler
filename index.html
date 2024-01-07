@@ -49,17 +49,11 @@
     </div>
     <!-- Modal -->
     <!-- Modal to select planner times -->
-    <div
-      class="modal fade"
-      id="plannerTimes"
-      tabindex="-1"
-      aria-labelledby="plannerTimesLabel"
-      aria-hidden="true"
-    >
+    <div class="modal fade" id="plannerTimes" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header d-flex justify-content-center">
-            <h5 class="modal-title text-uppercase" id="plannerTimesLabel">
+            <h5 class="modal-title text-uppercase">
               Select start and finish times
             </h5>
           </div>
@@ -122,19 +116,19 @@
                 </select>
               </div>
             </div>
-            <p id="error-message">test</p>
+            <p id="error-message"></p>
           </div>
           <div class="modal-footer">
-            <button type="button" id="time-btn-submit" class="btn btn-primary">
-              Submit
+            <button type="button" id="time-btn-submit" class="main-btn">
+              <span>Submit</span>
             </button>
             <button
               id="planner-time-close-btn"
               type="button"
-              class="btn btn-secondary"
+              class="main-btn"
               data-bs-dismiss="modal"
             >
-              Cancel
+              <span>Cancel</span>
             </button>
           </div>
         </div>
