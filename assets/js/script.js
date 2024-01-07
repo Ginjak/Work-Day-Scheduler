@@ -131,6 +131,6 @@ timeSubmitBtn.on("click", function () {
     $("#planner-time-close-btn").click();
     displayTimeBlocks();
   } else if (timeFromValue > timeTillValue) {
-    $("#error-message").text("Wrong input");
+    $("#error-message").text("Please, enter finish time after start time");
   }
 });

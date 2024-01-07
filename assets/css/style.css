@@ -156,7 +156,12 @@ i {
 }
 
 /* Modals */
-
+#error-message {
+  padding-left: 12px;
+  color: #8d1009;
+  font-weight: bold;
+  text-transform: uppercase;
+}
 .modal-content {
   color: #fdfffc;
   background: #7c90a0;
