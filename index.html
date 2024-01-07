@@ -30,18 +30,18 @@
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
       <button
-        class="change-planner-times"
+        class="change-planner-times main-btn"
         data-bs-toggle="modal"
         data-bs-target="#plannerTimes"
       >
-        Working hours
+        <span>Working hours</span>
       </button>
       <button
-        class="clear-planner"
+        class="clear-planner main-btn"
         data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
+        data-bs-target="#clear-planner-modal"
       >
-        Clear all tasks
+        <span>Clear all tasks</span>
       </button>
     </header>
     <div class="container my-5">
@@ -141,13 +141,7 @@
       </div>
     </div>
     <!-- Modal to clear local storage values for textarea (YES/NO) -->
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
+    <div class="modal fade" id="clear-planner-modal" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-body">

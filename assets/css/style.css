@@ -21,15 +21,47 @@ header {
   border-bottom: 10px solid #596874;
   padding: 60px;
 }
-
-.description {
+.row {
   white-space: pre-wrap;
+  height: 80px;
 }
 
+/* Working hours & Clear all tasks buttons */
+.main-btn {
+  position: relative;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  background: #26413c;
+  color: #fdfffc;
+}
+.main-btn span {
+  position: relative;
+  z-index: 10;
+}
+.main-btn:hover:before {
+  border-radius: 5px;
+  width: 100%;
+  transition: width 0.4s ease-in;
+}
+.main-btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: #385f58;
+  transition: width 0.4s ease-in;
+}
+/* Time block */
 .time-block {
   text-align: center;
   border-top: 1px solid white;
 }
+
+/* Time block first and last elements */
 .time-block:first-child {
   border-top: none;
 }
@@ -42,23 +74,26 @@ header {
   border-radius: 0 0 0 15px;
 }
 
-.time-block:first-child .saveBtn {
+.time-block:first-child .saveBtn,
+.time-block:first-child .btnHover:before {
   border-radius: 0 15px 0 0;
 }
-.time-block:last-child .saveBtn {
+
+.time-block:last-child .saveBtn,
+.time-block:last-child .btnHover:before {
   border-radius: 0 0 15px 0;
 }
 
-.row {
-  white-space: pre-wrap;
-  height: 80px;
-}
-
+/* Time block hour and description divs */
 .hour {
   background-color: #7c90a0;
   color: #fdfffc;
 }
+.description {
+  white-space: pre-wrap;
+}
 
+/* Time block colors past/current/future */
 .past {
   background-color: #d3d3d3;
   color: white;
@@ -74,6 +109,7 @@ header {
   color: white;
 }
 
+/* Time block save button classes */
 .btnHover {
   position: relative;
 }
